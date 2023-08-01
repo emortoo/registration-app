@@ -1,0 +1,21 @@
+Change hostname of the server 
+$ sudo hostname (HostName: Jenkins-Server)
+
+Logout and switch to root user 
+$ sudo su - 
+
+vi to /etc/hostname to change the system Hostname
+# vim /etc/hostname
+
+Press i for insect to enter edit mode in the Vim editor
+delete existing hostname and replace with your server hostname (HostName:Jenkins-server)
+Press Esc key then :wq! to save file 
+
+log back to user by exiting from root user
+# exit 
+
+-------------------- Configure Jenkins Server -----------------------------
+
+Display Jekins password by running this command
+$ cat /var/lib/jenkins/secrets/initialAdminPassword
+

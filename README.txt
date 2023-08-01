@@ -5,8 +5,8 @@ $ sudo yum update –y
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 $ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-$ sudo yum upgrade
-$ amazon-linux-extras install epel
+$ sudo yum upgrade -y
+$ amazon-linux-extras install epel -y
 $ sudo amazon-linux-extras install java-openjdk11 -y
 $ yum install java-11-amazon-corretto -y
 $ sudo yum install jenkins -y
