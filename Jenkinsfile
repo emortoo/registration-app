@@ -7,7 +7,7 @@ pipeline{
     stage('Git Clone'){
       steps{
         echo "cloning the lastest applications version"
-        git "https://github.com/emortoo/registration-app"
+        git branch: 'main', url: "https://github.com/emortoo/registration-app.git" // specify branch name if the default is not master 
       }
     }
       stage('Maven Build'){
