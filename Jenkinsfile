@@ -1,7 +1,7 @@
 pipeline{
   agent any 
   tools{
-    maven "maven 3.9.3"
+    maven "maven3.9.3"  // name should match the name of maven plugin in jenkens
   }
   stages{
     stage('Git Clone'){
