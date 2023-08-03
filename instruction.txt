@@ -19,3 +19,115 @@ log back to user by exiting from root user
 Display Jekins password by running this command
 $ cat /var/lib/jenkins/secrets/initialAdminPassword
 
+-------------------Configure Ansible Server----------------
+prerequisites
+
+1. Launch a server on your cloud provider (AWS)
+ - AMI = Amazon Linux 
+ - CPU = T2 micro 
+ - Port = 8080 - 8090 
+
+
+1. Change hostname of the server 
+$ sudo hostname (HostName: Jenkins-Server)
+
+2. Restart server 
+
+create a user
+# useradd (username: ansadmin) 
+# passwd ( set password)
+
+3. add user to Sudoers file 
+# visudo 
+
+insect this command (ansadmin ALL=(ALL)       NOPASSWD: ALL) just like the fig below 
+
+## Same thing without a password
+# %wheel        ALL=(ALL)       NOPASSWD: ALL
+ansadmin ALL=(ALL)       NOPASSWD: ALL
+
+for nano editor press ESC then use ctr + x and y to save and exit 
+for vim editor use  press ESC the :wq! to save and exit 
+
+4. Change password configuration in /etc/ssh/sshd_config file to yes 
+
+cd /etc/ssh
+list all the files in the ssh directory 
+# ls 
+open the sshd_config
+# vi sshd_config or nano sshd_config
+
+5. change password PasswordAuthentication on line 64 from No to yes 
+
+PasswordAuthentication yes
+
+6. Restart sshd service 
+
+$ sudo service sshd.service reload 
+
+7. Switch to newly created user 
+
+$ sudo su - ansadmin
+
+8. Generate an ssh key pair for this user to create passwordless connection 
+$ ssh-keygen
+
+Press enter 3 times generate ssh kegen 
+
+9. Secure keygen by coping it onto a secured location on your local host or navigate to .ssh file to retrieve key 
+
+in your home enviroment ~ and cat 
+$ cd .ssh 
+$ ls 
+$ cat id_rsa.pub
+
+-------------installing Ansible on the server------------------ 
+
+1. switch to root user 
+
+$ sudo su - 
+
+2. install ansible 
+# amazon-linux-extras install ansible2
+
+
+-----------Integrate Ansible with jenkins ------------------
+
+1. Go to Manage Jenkins tab on the dashboard 
+
+2. Under systems configruations click on system
+
+3. scroll down and locat publish over ssh 
+
+4. click on add server and provide the following information 
+- Server Name (Ansible-Server)
+- Hostnamer ( Ip address)
+- username (ansadmin)
+
+Click on advance 
+
+check the use password authentication option
+- provide ansadmin password  
+
+click on apply then test the connection 
+
+Click test configruation button, once the connection is suceesfully click on save 
+
+
+---------------- Create a docker directory in the Ansible Server -------------
+
+1. open the opt director and create a docker directory 
+
+$ cd /opt 
+$ ls 
+$ sudo mkdir Docker 
+
+2. check the ownership of the docker file 
+
+$ ll 
+
+3. change ownership from root to ansadmin for the docker directory 
+
+$ sudo chown ansadmin:ansadmin Docker 
+
+------------- Copy artifacts onto Ansible Server -----------------------
