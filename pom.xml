@@ -32,18 +32,7 @@
     <module>webapp</module>
   </modules>
 
-  <distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>jfrog-server-releases</name>
-        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>jfrog-server-snapshots</name>
-        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
-    </snapshotRepository>
-</distributionManagement>
+
 
   <build>
     <plugins>
@@ -230,6 +219,19 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog-server-releases</name>
+        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog-server-snapshots</name>
+        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
+    </snapshotRepository>
+</distributionManagement>
 
   <scm>
     <connection>scm:git:git@github.com:git@github.com:emortoo/registration-app.git</connection>
