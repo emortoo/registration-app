@@ -227,7 +227,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
+  
   <scm>
     <connection>scm:git:git@github.com:emortoo/registration-app.git</connection>
     <developerConnection>scm:git:git@github.com:jleetutorial/maven-project.git</developerConnection>
