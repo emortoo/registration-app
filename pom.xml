@@ -26,13 +26,23 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-
   <modules>
     <module>server</module>
     <module>webapp</module>
   </modules>
 
-
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog-server-releases</name>
+        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog-server-snapshots</name>
+        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
+    </snapshotRepository>
+</distributionManagement>
 
   <build>
     <plugins>
@@ -174,8 +184,6 @@
     </pluginManagement>
   </build>
 
-  
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -220,21 +228,8 @@
     </dependencies>
   </dependencyManagement>
 
-<distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>jfrog-server-releases</name>
-        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>jfrog-server-snapshots</name>
-        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
-    </snapshotRepository>
-</distributionManagement>
-
   <scm>
-    <connection>scm:git:git@github.com:git@github.com:emortoo/registration-app.git</connection>
+    <connection>scm:git:git@github.com:emortoo/registration-app.git</connection>
     <developerConnection>scm:git:git@github.com:jleetutorial/maven-project.git</developerConnection>
     <tag>HEAD</tag>
     <url>https://github.com/emortoo/registration-app.git</url>
