@@ -33,18 +33,17 @@
   </modules>
 
   <distributionManagement>
-	    <repository>
-	      <id>nexus</id>
-	      <name>Releases Nexus Repository</name>
-	      <url>http://3.88.34.244:8081/repository/maven-releases/</url> 
-	    </repository>
-	    
-	    <snapshotRepository>
-	      <id>nexus</id>
-	      <name>Snapshot Nexus Repository</name>
-	      <url>http://3.88.34.244:8081/repository/maven-snapshots/</url>
-	    </snapshotRepository>
-  </distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog-server-releases</name>
+        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog-server-snapshots</name>
+        <url>http://3.83.158.196:8081/artifactory/registration-app-artifact</url>
+    </snapshotRepository>
+</distributionManagement>
 
   <build>
     <plugins>
